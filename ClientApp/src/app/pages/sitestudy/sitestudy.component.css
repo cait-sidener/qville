@@ -1,0 +1,43 @@
+a {
+  color: #555;
+  margin-right: 20px;
+  text-decoration: none;
+}
+
+a:hover {
+  font-style: italic;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  background-color: #555;
+  color: #fff;
+  margin: 0 5px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contain {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.links {
+  display: flex;
+}
+
+mat-icon {
+  cursor: pointer;
+}
+
+.next{
+  text-align: right;
+}

@@ -1,0 +1,11 @@
+.contain {
+  align-items: center;
+  display: flex;
+  margin: 20px;
+}
+
+.title {
+  font-size: 1.6em;
+  color: #555;
+  padding: 10px 10px 0;
+}

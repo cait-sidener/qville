@@ -1,0 +1,5 @@
+.close {
+  background-color: #fff !important;
+  display: flex;
+  justify-content: flex-end;
+}

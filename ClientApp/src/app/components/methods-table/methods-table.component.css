@@ -1,0 +1,19 @@
+mat-icon {
+  color: #555;
+}
+
+sup {
+  vertical-align: middle;
+  font-size: smaller;
+}
+
+table {
+  border: 1px solid #ddd;
+  font-size: 0.9em;
+  height: 777px;
+}
+
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+

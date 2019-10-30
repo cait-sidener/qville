@@ -1,0 +1,19 @@
+.table1 {
+  margin: 10px;
+}
+
+.table2 {
+  margin: 0 10px;
+}
+
+.title {
+  font-size: 1.6em;
+  color: #555;
+  padding: 10px 10px 0;
+}
+
+.wrap {
+  align-items: center;
+  display: flex;
+  margin-bottom: 200px;
+}

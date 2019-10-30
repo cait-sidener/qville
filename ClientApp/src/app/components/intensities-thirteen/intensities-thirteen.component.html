@@ -1,0 +1,53 @@
+<p class="title">2013 Data</p>
+<div class="filter">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+</div>
+<div class="table">
+  <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <ng-container matColumnDef="duration">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Duration</mat-header-cell>
+      <mat-cell *matCellDef="let intensity">{{intensity.duration}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="yearOne">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Intensity 1 year</mat-header-cell>
+      <mat-cell *matCellDef="let intensity">{{intensity.yearOne}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="yearTwo">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Intensity 2 year</mat-header-cell>
+      <mat-cell *matCellDef="let intensity">{{intensity.yearTwo}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="yearFive">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Intensity 5 year</mat-header-cell>
+      <mat-cell *matCellDef="let intensity">{{intensity.yearFive}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="yearTen">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Intensity 10 year</mat-header-cell>
+      <mat-cell *matCellDef="let intensity">{{intensity.yearTen}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="yearTwentyfive">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Intensity 25 year</mat-header-cell>
+      <mat-cell *matCellDef="let intensity">{{intensity.yearTwentyfive}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="yearFifty">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Intensity 50 year</mat-header-cell>
+      <mat-cell *matCellDef="let intensity">{{intensity.yearFifty}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="yearHundred">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Intensity 100 year</mat-header-cell>
+      <mat-cell *matCellDef="let intensity">{{intensity.yearHundred}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="yearTwohundred">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Intensity 200 year</mat-header-cell>
+      <mat-cell *matCellDef="let intensity">{{intensity.yearTwohundred}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="yearFivehundred">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Intensity 500 year</mat-header-cell>
+      <mat-cell *matCellDef="let intensity">{{intensity.yearFivehundred}}</mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons class="mat-elevation-z8"></mat-paginator>
+</div>

@@ -1,0 +1,29 @@
+[
+    {
+      "projectNo": 3110,
+      "dateAdded": "7/18/2019",
+      "dateModified": "7/18/2019",
+      "addedBy": "jhobelman",
+      "modifiedBy": "jhobelman",
+      "countyNumber": 1,
+      "bridgeSerial": 30
+    },
+    {
+      "projectNo": "K-0000-02",
+      "dateAdded": "12/11/2012",
+      "dateModified": "5/10/2016",
+      "addedBy": "anderson",
+      "modifiedBy": "anderson",
+      "countyNumber": 1,
+      "bridgeSerial": null
+    },
+    {
+      "projectNo": "k-5657-01",
+      "dateAdded": "11/6/2012",
+      "dateModified": "11/6/2012",
+      "addedBy": "anderson",
+      "modifiedBy": "anderson",
+      "countyNumber": 2,
+      "bridgeSerial": null
+    }
+  ]
