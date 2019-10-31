@@ -13,6 +13,11 @@ a:hover {
   justify-content: space-between;
 }
 
+.alert {
+  color: #f44336;
+  margin-top: -20px;
+}
+
 button {
   background-color: #555;
   color: #fff;
@@ -36,6 +41,10 @@ button {
 
 mat-icon {
   cursor: pointer;
+}
+
+mat-radio-button {
+  margin-right: 10px;
 }
 
 .next{

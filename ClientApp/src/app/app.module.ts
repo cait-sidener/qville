@@ -8,11 +8,13 @@ import { NgxGalleryModule } from 'ngx-gallery';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
     MatButtonModule,
+    MatCheckboxModule,
     MatDialogModule,
     MatExpansionModule,
     MatIconModule,
     MatMenuModule,
     MatPaginatorModule,
+    MatRadioModule,
     MatTableModule,
     MatSortModule,
     MatSelectModule,
@@ -43,6 +45,8 @@ import { MeanAnnualRunoffMapComponent } from './components/modals/mean-annual-ru
 import { DataService } from './services/data.service';
 import { SitesListComponent } from './pages/sites-list/sites-list.component';
 import { IntensitiesThirteenComponent } from './components/intensities-thirteen/intensities-thirteen.component';
+import { RainfallMapComponent } from './components/modals/rainfall-map/rainfall-map.component';
+import { MethodVariableTableComponent } from './components/method-variable-table/method-variable-table.component';
 
 @NgModule({
     declarations: [
@@ -63,6 +67,8 @@ import { IntensitiesThirteenComponent } from './components/intensities-thirteen/
         MeanAnnualRunoffMapComponent,
         SitesListComponent,
         IntensitiesThirteenComponent,
+        RainfallMapComponent,
+        MethodVariableTableComponent,
     ],
     imports: [
         BrowserAnimationsModule,
@@ -70,6 +76,7 @@ import { IntensitiesThirteenComponent } from './components/intensities-thirteen/
         HttpClientModule,
         FormsModule,
         MatButtonModule,
+        MatCheckboxModule,
         MatDialogModule,
         MatExpansionModule,
         MatFormFieldModule,
@@ -78,6 +85,7 @@ import { IntensitiesThirteenComponent } from './components/intensities-thirteen/
         MatInputModule,
         MatMenuModule,
         MatPaginatorModule,
+        MatRadioModule,
         MatTableModule,
         MatTooltipModule,
         MatSelectModule,
@@ -99,6 +107,7 @@ import { IntensitiesThirteenComponent } from './components/intensities-thirteen/
         MeanPrecipitationMapsComponent,
         Precipitation15MapComponent,
         Precipitation17MapComponent,
+        RainfallMapComponent,
         SoilPermeabilityMapsComponent,
     ],
     bootstrap: [AppComponent]

@@ -1,28 +1,37 @@
 <p class="title">Rainfall Intensity Values for Kansas Counties</p>
 <p>The 1997 Rain Intesities Data comes from the Technical Memorandum NWS HYDRO-35 (for durations of 5 minutes to 60
   minutes) and Technical Paper No 40 (TP-40) of the US Weather Bureau (longer durations)</p>
-<p>Methods making use of the 1997 data:</p>
-<ul>
-  <li>K-TRAN KU-06-4 Extended Rational</li>
-  <li>K-TRAN KU-06-4 3 Var Regression</li>
-  <li>Rational Method</li>
-</ul>
-<p>Methods making use of the 2013 data:</p>
-<ul>
-  <li>FHWA-KS-15-12</li>
-</ul>
-<p>This is <b>for information only</b>. The program will look up the values when calculating. The program assumes time
-  of concentration to be equal to duration and the intensity values are linear interpolated for durations between the
+<div class="methods">
+  <div>
+    <p>Methods making use of the 1997 data:</p>
+    <ul>
+      <li>K-TRAN KU-06-4 Extended Rational</li>
+      <li>K-TRAN KU-06-4 3 Var Regression</li>
+      <li>Rational Method</li>
+    </ul>
+  </div>
+  <div>
+    <p>Methods making use of the 2013 data:</p>
+    <ul>
+      <li>FHWA-KS-15-12</li>
+    </ul>
+  </div>
+</div>
+<p>This is <b>for information only</b>. The program will look up the values when calculating. The program assumes
+  time
+  of concentration to be equal to duration and the intensity values are linear interpolated for durations between
+  the
   table durations.</p>
+
 <div>
   <mat-form-field>
     <mat-label>County</mat-label>
-    <mat-select [(ngModel)]="countSelected" (ngModelChange)='onCountSelected($event)'>
-      <mat-option *ngFor="let count of counties" [value]="count.Id">{{count.Name}}</mat-option>
+    <mat-select [(ngModel)]="countySelected" (ngModelChange)='onCountySelected($event)'>
+      <mat-option *ngFor="let county of counties" [value]="county.Id">{{county.Name}}</mat-option>
     </mat-select>
   </mat-form-field>
 </div>
 <div *ngIf='showTables' class="contain">
-  <app-intensities></app-intensities>
-  <app-intensities-thirteen></app-intensities-thirteen>
+  <app-intensities [countyId]="countySelected"></app-intensities>
+  <app-intensities-thirteen [countyId]="countySelected"></app-intensities-thirteen>
 </div>

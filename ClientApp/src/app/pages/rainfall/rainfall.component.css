@@ -4,6 +4,11 @@
   margin: 20px;
 }
 
+.methods {
+  display: flex;
+  justify-content: space-around;
+}
+
 .title {
   font-size: 1.6em;
   color: #555;

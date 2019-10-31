@@ -1,0 +1,21 @@
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Method Variables
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-table [dataSource]='dataSource' class='mat-elevation-z8'>
+      <ng-container matColumnDef='name'>
+        <mat-cell *matCellDef='let method'> {{method.name}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef='region'>
+          <mat-cell *matCellDef='let method'> {{method.region}}</mat-cell>
+        </ng-container>
+      <ng-container matColumnDef='equation'>
+        <mat-cell *matCellDef='let method'>{{method.equation}}</mat-cell>
+      </ng-container>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </mat-expansion-panel>
+</mat-accordion>

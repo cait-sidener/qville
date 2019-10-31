@@ -1,236 +1,281 @@
-<mat-horizontal-stepper [linear]="isLinear" #stepper>
-  <mat-step [stepControl]="firstFormGroup">
-    <form class="containment" [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Site Study Record (New)</ng-template>
-      <p>Enter the info for the site study.</p>
-      <mat-grid-list cols="2" rowHeight="150px" gutterSize="5px">
-        <mat-grid-tile>
-          <div class="contain">
-            <mat-form-field appearance="outline">
-              <mat-label>Project No</mat-label>
-              <input matInput formControlName="firstCtrl">
-            </mat-form-field>
-          </div>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <div class="contain">
-            <mat-form-field appearance="outline">
-              <mat-label>County (Site, not Drainage)</mat-label>
-              <input matInput formControlName="firstCtrl" required>
-            </mat-form-field>
-          </div>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <div class="contain">
-            <mat-form-field appearance="outline">
-              <mat-label>Bridge Serial</mat-label>
-              <input matInput formControlName="firstCtrl">
-            </mat-form-field>
-          </div>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <div class="contain">
-            <mat-form-field appearance="outline">
-              <mat-label>Notes</mat-label>
-              <textarea matInput formControlName="firstCtrl"></textarea>
-            </mat-form-field>
-          </div>
-        </mat-grid-tile>
-      </mat-grid-list>
-      <p><i>The county entered should be where the drainage discharge is located (i.e. where the bridge is located, not
-          what county the drainage comes from principally.) The hydro input is where contributing drainage country would
-          be entered.</i></p>
+  <mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form class="containment" [formGroup]="firstFormGroup" (ngSubmit)='addPost(firstFormGroup.value)'>
+        <ng-template matStepLabel>Site Study Record (New)</ng-template>
+        <p>Enter the info for the site study.</p>
+        <mat-grid-list cols="2" rowHeight="150px" gutterSize="5px">
+          <mat-grid-tile>
+            <div class="contain">
+              <mat-form-field appearance="outline">
+                <mat-label>Project No</mat-label>
+                <input matInput formControlName="projectNo">
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="contain">
+              <mat-form-field appearance="outline">
+                <mat-label>County (Site, not Drainage)</mat-label>
+                <input matInput formControlName="county">
+              </mat-form-field>
+              <div class='alert'
+                *ngIf='!firstFormGroup.controls["county"].valid && firstFormGroup.controls["county"].touched'>
+                {{ titleAlert }}</div>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="contain">
+              <mat-form-field appearance="outline">
+                <mat-label>Bridge Serial</mat-label>
+                <input matInput formControlName="bridgeSerial">
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="contain">
+              <mat-form-field appearance="outline">
+                <mat-label>Notes</mat-label>
+                <textarea matInput formControlName="notes"></textarea>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+        </mat-grid-list>
+        <p><i>The county entered should be where the drainage discharge is located (i.e. where the bridge is located,
+            not
+            what county the drainage comes from principally.) The hydro input is where contributing drainage country
+            would
+            be entered.</i></p>
+        <div class="next">
+          <button class="next" mat-button matStepperNext [disabled]='!firstFormGroup.valid'>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
 
-      <div class="next">
-        <button class="next" mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="secondFormGroup">
+      <form class="containment" [formGroup]="secondFormGroup" (ngSubmit)='addPost(secondFormGroup.value)'>
+        <ng-template matStepLabel>Hydro Input</ng-template>
+        <mat-grid-list cols="2" rowHeight="155px" gutterSize="5px">
+          <mat-grid-tile>
+            <div class="contain">
+              <mat-checkbox formControlName='currentMethods' [(ngModel)]="checked">Output Current Methods Only</mat-checkbox>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="contain">
+              <mat-form-field appearance="outline">
+                <mat-label>Drainage Area (Square Miles)</mat-label>
+                <input matInput formControlName="drainageArea">
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="contain">
+              <mat-form-field appearance="outline">
+                <mat-label>Drainage County</mat-label>
+                <mat-select formControlName="countyOptions">
+                  <mat-option value="option1"> </mat-option>
+                  <mat-option value="option2">ALLEN</mat-option>
+                  <mat-option value="option2">ANDERSON</mat-option>
+                  <mat-option value="option3">ATCHISON</mat-option>
+                  <mat-option value="option4">BARBER</mat-option>
+                  <mat-option value="option5">BARTON</mat-option>
+                  <mat-option value="option6">BOURBON</mat-option>
+                  <mat-option value="option7">BROWN</mat-option>
+                  <mat-option value="option8">BUTLER</mat-option>
+                  <mat-option value="option9">CHASE</mat-option>
+                  <mat-option value="option10">CHAUTAUQUA</mat-option>
+                  <mat-option value="option11">CHEROKEE</mat-option>
+                  <mat-option value="option12">CHEYENNE</mat-option>
+                  <mat-option value="option13">CLARK</mat-option>
+                  <mat-option value="option14">CLAY</mat-option>
+                  <mat-option value="option15">CLOUD</mat-option>
+                  <mat-option value="option16">COFFEE</mat-option>
+                  <mat-option value="option17">COMANCHE</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="contain">
+              <mat-radio-group formControlName='validate'>
+                <mat-radio-button value='1'>County Value</mat-radio-button>
+                <br>
+                <mat-radio-button value='2' checked>User Value</mat-radio-button>
+                <mat-icon matTooltip="View Map" [matTooltipPosition]="position.value" (click)="openDialog6()">
+                    map
+                  </mat-icon>
+              </mat-radio-group>
+              <mat-form-field appearance="outline">
+                <mat-label>Rainfall 2 Year 24 hr (Inches)</mat-label>
+                <input matInput formControlName="rainfall">
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="contain">
+              <mat-form-field appearance="outline">
+                <mat-label>Soil Permeability (Inches Per Hour)</mat-label>
+                <input matInput formControlName="soilPermeability">
+              </mat-form-field>
+            </div>
+            <mat-icon matTooltip="View Maps" [matTooltipPosition]="position.value" (click)="openDialog()">
+              map
+            </mat-icon>
 
-    <form class="containment" [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Hydro Input</ng-template>
-      <mat-grid-list cols="2" rowHeight="120px" gutterSize="5px">
-        <mat-grid-tile>
-          <div class="contain">
-            <mat-form-field appearance="outline">
-              <mat-label>Drainage Area (Square Miles></mat-label>
-              <input matInput formControlName="secondCtrl">
-            </mat-form-field>
-          </div>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <div class="contain">
-            <mat-form-field appearance="outline">
-              <mat-label>Drainage County</mat-label>
-              <mat-select formControlName="secondCtrl">
-                <mat-option value="option1"> </mat-option>
-                <mat-option value="option2">ALLEN</mat-option>
-                <mat-option value="option2">ANDERSON</mat-option>
-                <mat-option value="option3">ATCHISON</mat-option>
-                <mat-option value="option4">BARBER</mat-option>
-                <mat-option value="option5">BARTON</mat-option>
-                <mat-option value="option6">BOURBON</mat-option>
-                <mat-option value="option7">BROWN</mat-option>
-                <mat-option value="option8">BUTLER</mat-option>
-                <mat-option value="option9">CHASE</mat-option>
-                <mat-option value="option10">CHAUTAUQUA</mat-option>
-                <mat-option value="option11">CHEROKEE</mat-option>
-                <mat-option value="option12">CHEYENNE</mat-option>
-                <mat-option value="option13">CLARK</mat-option>
-                <mat-option value="option14">CLAY</mat-option>
-                <mat-option value="option15">CLOUD</mat-option>
-                <mat-option value="option16">COFFEE</mat-option>
-                <mat-option value="option17">COMANCHE</mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <div class="contain">
-            <mat-form-field appearance="outline">
-              <mat-label>Rainfall 2 Year 24 hr (Inches)</mat-label>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="contain">
+              <mat-form-field appearance="outline">
+                <mat-label>Slope 10 to 85% (Feet per Mile)</mat-label>
+                <input matInput formControlName="slope">
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+        </mat-grid-list>
 
-              <input matInput formControlName="secondCtrl">
-            </mat-form-field>
-          </div>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <div class="contain">
-            <mat-form-field appearance="outline">
-              <mat-label>Soil Permeability (Inches Per Hour)</mat-label>
-              <input matInput formControlName="secondCtrl">
-            </mat-form-field>
-          </div>
-          <mat-icon matTooltip="View Maps" [matTooltipPosition]="position.value" (click)="openDialog()">
-            map
-          </mat-icon>
+        <div class="actions">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+      <br>
+      <app-method-variable-table></app-method-variable-table>
 
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <div class="contain">
-            <mat-form-field appearance="outline">
-              <mat-label>Slope 10 to 85% (Feet per Mile)</mat-label>
-              <input matInput formControlName="secondCtrl">
-            </mat-form-field>
-          </div>
-        </mat-grid-tile>
-      </mat-grid-list>
-      <div class="actions">
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
+    </mat-step>
 
+    <mat-step [stepControl]="thirdFormGroup">
+      <form class="containment" [formGroup]="thirdFormGroup" (ngSubmit)='addPost(thirdFormGroup.value)'>
+        <ng-template matStepLabel>Hydro Input</ng-template>
+        <mat-grid-list cols="2" rowHeight="120px" gutterSize="5px">
+          <mat-grid-tile>
+            <div class="contain">
+              <mat-form-field appearance="outline">
+                <mat-label>Mean Annual Precipitation (Inches)</mat-label>
+                <input matInput formControlName="annualPrecipitation">
+              </mat-form-field>
+            </div>
+            <mat-icon matTooltip="View Map" [matTooltipPosition]="position.value" (click)="openDialog2()">
+              map
+            </mat-icon>
 
-  <mat-step [stepControl]="thirdFormGroup">
-    <form class="containment" [formGroup]="thirdFormGroup">
-      <ng-template matStepLabel>Hydro Input</ng-template>
-      <mat-grid-list cols="2" rowHeight="120px" gutterSize="5px">
-        <mat-grid-tile>
-          <div class="contain">
-            <mat-form-field appearance="outline">
-              <mat-label>Mean Annual Precipitation (Inches)</mat-label>
-              <input matInput formControlName="thirdCtrl">
-            </mat-form-field>
-          </div>
-          <mat-icon matTooltip="View Map" [matTooltipPosition]="position.value" (click)="openDialog2()">
-            map
-          </mat-icon>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="contain">
+              <mat-form-field appearance="outline">
+                <mat-label>Mean Annual Precipitation15 (Kansas 2015) (Inches)</mat-label>
+                <input matInput formControlName="annualPrecipitation15">
+              </mat-form-field>
+            </div>
+            <mat-icon matTooltip="View Map" [matTooltipPosition]="position.value" (click)="openDialog3()">
+              map
+            </mat-icon>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="contain">
+              <mat-form-field appearance="outline">
+                <mat-label>Mean Annual Precipitation (Kansas 2017) (Inches) [PRECIPRIS10]</mat-label>
+                <input matInput formControlName="annualPrecipitation17">
+              </mat-form-field>
+            </div>
+            <mat-icon matTooltip="View Map" [matTooltipPosition]="position.value" (click)="openDialog4()">
+              map
+            </mat-icon>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="contain">
+              <mat-form-field appearance="outline">
+                <mat-label>Kansas Hydrolic Region [Region]</mat-label>
+                <mat-select formControlName="hydrolicRegion">
+                  <mat-option value="option1"> </mat-option>
+                  <mat-option value="na">Not Applicable</mat-option>
+                  <mat-option value="reg1">Region 1</mat-option>
+                  <mat-option value="reg2">Region 2</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <mat-icon matTooltip="View Map" [matTooltipPosition]="position.value" (click)="openDialog4()">
+              map
+            </mat-icon>
+          </mat-grid-tile>
+          <mat-grid-tile>
 
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <div class="contain">
-            <mat-form-field appearance="outline">
-              <mat-label>Mean Annual Precipitation15 (Kansas 2015) (Inches)</mat-label>
-              <input matInput formControlName="thirdCtrl">
-            </mat-form-field>
-          </div>
-          <mat-icon matTooltip="View Map" [matTooltipPosition]="position.value" (click)="openDialog3()">
-            map
-          </mat-icon>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <div class="contain">
-            <mat-form-field appearance="outline">
-              <mat-label>Mean Annual Precipitation (Kansas 2017) (Inches) [PRECIPRIS10]</mat-label>
-              <input matInput formControlName="thirdCtrl">
-            </mat-form-field>
-          </div>
-          <mat-icon matTooltip="View Map" [matTooltipPosition]="position.value" (click)="openDialog4()">
-            map
-          </mat-icon>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <div class="contain">
-            <mat-form-field appearance="outline">
-              <mat-label>Kansas Hydrolic Region [Region]</mat-label>
-              <mat-select formControlName="thirdCtrl">
-                <mat-option value="option1"> </mat-option>
-                <mat-option value="na">Not Applicable</mat-option>
-                <mat-option value="reg1">Region 1</mat-option>
-                <mat-option value="reg2">Region 2</mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-          <mat-icon matTooltip="View Map" [matTooltipPosition]="position.value" (click)="openDialog4()">
-            map
-          </mat-icon>
-        </mat-grid-tile>
-        <mat-grid-tile>
+            <div class="contain">
+              <mat-form-field appearance="outline">
+                <mat-label>Mean Annual Runoff (Inches)</mat-label>
+                <input matInput formControlName="annualRunoff">
+              </mat-form-field>
+            </div>
+            <mat-icon matTooltip="View Map" [matTooltipPosition]="position.value" (click)="openDialog5()">
+              map
+            </mat-icon>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="contain">
+              <mat-form-field appearance="outline">
+                <mat-label>Main Channel Length (Miles)</mat-label>
+                <input matInput formControlName="channelLength">
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="contain">
+              <mat-form-field appearance="outline">
+                <mat-label>Rational Runoff Coefficient</mat-label>
+                <input matInput formControlName="runoffCoefficient">
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="contain">
+                <mat-checkbox formControlName='autoCalculate' value='1' [(ngModel)]="checked">Auto Calculated (Rural with < 3% impervious area)</mat-checkbox>
+              <mat-form-field appearance="outline">
+                <mat-label>Time of Concentration (Minutes)</mat-label>
+                <input matInput formControlName="concentration">
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+        </mat-grid-list>
 
-          <div class="contain">
-            <mat-form-field appearance="outline">
-              <mat-label>Mean Annual Runoff (Inches)</mat-label>
-              <input matInput formControlName="thirdCtrl">
-            </mat-form-field>
-          </div>
-          <mat-icon matTooltip="View Map" [matTooltipPosition]="position.value" (click)="openDialog5()">
-            map
-          </mat-icon>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <div class="contain">
-            <mat-form-field appearance="outline">
-              <mat-label>Main Channel Length (Miles)</mat-label>
-              <input matInput formControlName="thirdCtrl">
-            </mat-form-field>
-          </div>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <div class="contain">
-            <mat-form-field appearance="outline">
-              <mat-label>Rational Runoff Coefficient</mat-label>
-              <input matInput formControlName="thirdCtrl">
-            </mat-form-field>
-          </div>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <div class="contain">
-            <mat-form-field appearance="outline">
-              <mat-label>Time of Concentration (Minutes)</mat-label>
-              <input matInput formControlName="thirdCtrl">
-            </mat-form-field>
-          </div>
-        </mat-grid-tile>
-      </mat-grid-list>
+        <div class="actions">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+      <br>
+      <app-method-variable-table></app-method-variable-table>
+    </mat-step>
 
-      <div class="actions">
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Summary</ng-template>
-
-    <div class="buttons">
-      <button mat-button matStepperPrevious>Back</button>
-      <div>
-        <button mat-button (click)="stepper.reset()">Reset</button>
-        <button mat-button (click)="submit()">Save</button>
-      </div>
+<mat-step>
+  <ng-template matStepLabel>Summary</ng-template>
+  <div class='form-container'>
+    <p>Project Number: {{ projectNo }}</p>
+    <p>County: {{ county }}</p>
+    <p>Bridge Serial: {{ bridgeSerial }}</p>
+    <p>Notes: {{ notes }}</p>
+  </div>
+  <div class='form-container'>
+    <p>Current Methods: {{ currentMethods }}</p>
+    <p>Drainage Area: {{ drainageArea }}</p>
+    <p>County Options: {{ countyOptions }}</p>
+    <p>Soil Permeability: {{ soilPermeability }}</p>
+    <p>Slope: {{ slope }}</p>
+  </div>
+  <div class='form-container'>
+    <p>Annual Precipitation: {{ annualPrecipitation }}</p>
+    <p>Annual Precipitation15: {{ annualPrecipitation15 }}</p>
+    <p>Annual Precipitation17: {{ annualPrecipitation17 }}</p>
+    <p>Hydrolic Region: {{ hydrolicRegion }}</p>
+    <p>Annual Runoff: {{ annualRunoff }}</p>
+    <p>Channel Length: {{ channelLength }}</p>
+    <p>Runoff Coefficient: {{ runoffCoefficient }}</p>
+    <p>Concentration: {{ concentration }}</p>
+  </div>
+  <div class="buttons">
+    <button mat-button matStepperPrevious>Back</button>
+    <div>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+      <button mat-button type='submit' value='Submit'>Submit</button>
     </div>
-  </mat-step>
+  </div>
+</mat-step>
 </mat-horizontal-stepper>
