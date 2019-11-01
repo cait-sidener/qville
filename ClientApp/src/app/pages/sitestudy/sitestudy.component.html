@@ -18,7 +18,7 @@
                 <mat-label>County (Site, not Drainage)</mat-label>
                 <input matInput formControlName="county">
               </mat-form-field>
-              <div class='alert'
+              <div class='text-red-600 -mt-5'
                 *ngIf='!firstFormGroup.controls["county"].valid && firstFormGroup.controls["county"].touched'>
                 {{ titleAlert }}</div>
             </div>
@@ -45,8 +45,8 @@
             what county the drainage comes from principally.) The hydro input is where contributing drainage country
             would
             be entered.</i></p>
-        <div class="next">
-          <button class="next" mat-button matStepperNext [disabled]='!firstFormGroup.valid'>Next</button>
+        <div class="text-right">
+          <button mat-button class="button" matStepperNext [disabled]='!firstFormGroup.valid'>Next</button>
         </div>
       </form>
     </mat-step>
@@ -133,9 +133,9 @@
           </mat-grid-tile>
         </mat-grid-list>
 
-        <div class="actions">
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
+        <div class="flex justify-between">
+          <button class="bg-gray-600 text-white mx-1" matStepperPrevious>Back</button>
+          <button class="bg-gray-600 text-white mx-1" matStepperNext>Next</button>
         </div>
       </form>
       <br>
@@ -236,9 +236,9 @@
           </mat-grid-tile>
         </mat-grid-list>
 
-        <div class="actions">
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
+        <div class="flex justify-between">
+          <button class="bg-gray-600 text-white mx-1" matStepperPrevious>Back</button>
+          <button class='bg-gray-600 text-white mx-1' matStepperNext>Next</button>
         </div>
       </form>
       <br>
@@ -270,11 +270,11 @@
     <p>Runoff Coefficient: {{ runoffCoefficient }}</p>
     <p>Concentration: {{ concentration }}</p>
   </div>
-  <div class="buttons">
-    <button mat-button matStepperPrevious>Back</button>
+  <div class="flex justify-between">
+    <button class='bg-gray-600 text-white mx-1' matStepperPrevious>Back</button>
     <div>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-      <button mat-button type='submit' value='Submit'>Submit</button>
+      <button class='bg-gray-600 text-white mx-1' (click)="stepper.reset()">Reset</button>
+      <button class='bg-gray-600 text-white mx-1' type='submit' value='Submit'>Submit</button>
     </div>
   </div>
 </mat-step>

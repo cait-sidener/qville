@@ -1,7 +1,7 @@
-<p class="title">Rainfall Intensity Values for Kansas Counties</p>
+<p class="xl:text-2xl lg:text-2xl md:text-xl sm:text-xl py-3">Rainfall Intensity Values for Kansas Counties</p>
 <p>The 1997 Rain Intesities Data comes from the Technical Memorandum NWS HYDRO-35 (for durations of 5 minutes to 60
   minutes) and Technical Paper No 40 (TP-40) of the US Weather Bureau (longer durations)</p>
-<div class="methods">
+<div class="flex justify-around">
   <div>
     <p>Methods making use of the 1997 data:</p>
     <ul>
@@ -31,7 +31,7 @@
     </mat-select>
   </mat-form-field>
 </div>
-<div *ngIf='showTables' class="contain">
+<div *ngIf='showTables' class="sm:no-flex md:no-flex lg:flex xl:flex">
   <app-intensities [countyId]="countySelected"></app-intensities>
   <app-intensities-thirteen [countyId]="countySelected"></app-intensities-thirteen>
 </div>

@@ -1,32 +1,7 @@
-a {
-  color: #555;
-  margin-right: 20px;
-  text-decoration: none;
-}
-
-a:hover {
-  font-style: italic;
-}
-
-.actions {
-  display: flex;
-  justify-content: space-between;
-}
-
-.alert {
-  color: #f44336;
-  margin-top: -20px;
-}
-
-button {
+.button {
   background-color: #555;
   color: #fff;
   margin: 0 5px;
-}
-
-.buttons {
-  display: flex;
-  justify-content: space-between;
 }
 
 .contain {

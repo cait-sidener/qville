@@ -1,53 +1,56 @@
-<p class="title">Site Studies</p>
-<div class="table-top">
+<p class="xl:text-2xl lg:text-2xl md:text-xl sm:text-xl py-3">Site Studies</p>
+<div class="xl:flex xl:justify-between lg:flex lg:justify-between md:no-flex sm:no-flex mb-3">
   <div>
     <mat-form-field>
       <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
     </mat-form-field>
   </div>
-  <app-sites></app-sites>
+  <div class=items-start>
+    <app-sites></app-sites>
+  </div>
 </div>
-<div>
-  <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-    <ng-container matColumnDef="projectNo">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Project No</mat-header-cell>
-      <mat-cell *matCellDef="let site">{{site.projectNo}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="dateAdded">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Date Added</mat-header-cell>
-      <mat-cell *matCellDef="let site">{{site.dateAdded}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="dateModified">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Date Modified</mat-header-cell>
-      <mat-cell *matCellDef="let site">{{site.dateModified}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="addedBy">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Added By</mat-header-cell>
-      <mat-cell *matCellDef="let site">{{site.addedBy}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="modifiedBy">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Modified By</mat-header-cell>
-      <mat-cell *matCellDef="let site">{{site.modifiedBy}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="countyNumber">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>County No</mat-header-cell>
-      <mat-cell *matCellDef="let site">{{site.countyNumber}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="bridgeSerial">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Bridge Serial</mat-header-cell>
-      <mat-cell *matCellDef="let site">{{site.bridgeSerial}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="star">
-        <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
-        <mat-cell *matCellDef="let element">
-          <mat-icon [matMenuTriggerFor]='matMenu'>more_vert</mat-icon>
-          <mat-menu #matMenu='matMenu'>
-            <a [routerLink]='sites' mat-menu-item>Edit</a>
-          </mat-menu>
-        </mat-cell>
-      </ng-container>
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-  </mat-table>
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons class="mat-elevation-z8"></mat-paginator>
-</div>
+    <div>
+      <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+        <ng-container matColumnDef="projectNo">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Project No</mat-header-cell>
+          <mat-cell *matCellDef="let site">{{site.projectNo}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="dateAdded">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Date Added</mat-header-cell>
+          <mat-cell *matCellDef="let site">{{site.dateAdded}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="dateModified">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Date Modified</mat-header-cell>
+          <mat-cell *matCellDef="let site">{{site.dateModified}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="addedBy">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Added By</mat-header-cell>
+          <mat-cell *matCellDef="let site">{{site.addedBy}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="modifiedBy">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Modified By</mat-header-cell>
+          <mat-cell *matCellDef="let site">{{site.modifiedBy}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="countyNumber">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>County No</mat-header-cell>
+          <mat-cell *matCellDef="let site">{{site.countyNumber}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="bridgeSerial">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Bridge Serial</mat-header-cell>
+          <mat-cell *matCellDef="let site">{{site.bridgeSerial}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="star">
+          <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <mat-icon class="cursor-pointer" [matMenuTriggerFor]='matMenu'>more_vert</mat-icon>
+            <mat-menu #matMenu='matMenu'>
+              <a [routerLink]='sites' mat-menu-item
+                class="no-underline text-gray-700 hover:no-underline hover:text-gray-700">Edit</a>
+            </mat-menu>
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+      </mat-table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons class="mat-elevation-z8"></mat-paginator>
+    </div>

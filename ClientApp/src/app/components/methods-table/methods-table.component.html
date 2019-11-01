@@ -1,34 +1,34 @@
 <div>
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 text-sm border-solid border-1 border-gray-400 sm:h-auto" matSort>
     <!-- Method Column -->
     <ng-container matColumnDef="method">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Method </th>
-      <td mat-cell *matCellDef="let method"> {{method.method}} </td>
+      <td class="odd:bg-white even:bg-gray-200" mat-cell *matCellDef="let method"> {{method.method}} </td>
     </ng-container>
 
     <!-- Area Column -->
     <ng-container matColumnDef="area">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Applicable Area (Miles<br /><sup>2</sup><br /> ) </th>
-      <td mat-cell *matCellDef="let method"> {{method.area}} </td>
+      <td class="odd:bg-white even:bg-gray-200" mat-cell *matCellDef="let method"> {{method.area}} </td>
     </ng-container>
 
     <!-- Equation Column -->
     <ng-container matColumnDef="equation">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> General Equation </th>
-      <td mat-cell *matCellDef="let method"> {{method.equation}} </td>
+      <td class="odd:bg-white even:bg-gray-200" mat-cell *matCellDef="let method"> {{method.equation}} </td>
     </ng-container>
 
     <!-- Variables Column -->
     <ng-container matColumnDef="variable">
-      <th class="center" mat-header-cell *matHeaderCellDef mat-sort-header> Required Variables </th>
-      <td class="center" mat-cell *matCellDef="let method"> {{method.variable}} </td>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Required Variables </th>
+      <td class="odd:bg-white even:bg-gray-200" mat-cell *matCellDef="let method"> {{method.variable}} </td>
     </ng-container>
 
     <!-- Current Column -->
     <ng-container matColumnDef="current">
-      <th class="center" mat-header-cell *matHeaderCellDef mat-sort-header> Current Method </th>
-      <td class="center" mat-cell *matCellDef="let method">
-        <mat-icon>{{method.current}}</mat-icon>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Current Method </th>
+      <td class="odd:bg-white even:bg-gray-200" mat-cell *matCellDef="let method">
+        <mat-icon class="text-gray-600">{{method.current}}</mat-icon>
       </td>
     </ng-container>
 

@@ -1,7 +1,6 @@
 import {Component, ViewChild, Input} from '@angular/core';
 import { IntensitiesThirteenService } from '../../services/intensities-thirteen.service';
-import {MatPaginator, MatSort, MatSortable, MatTableDataSource} from '@angular/material';
-import  { Observable } from 'rxjs';
+import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 
 @Component({
   selector: 'app-intensities-thirteen',

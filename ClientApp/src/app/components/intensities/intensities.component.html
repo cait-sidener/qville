@@ -1,10 +1,10 @@
-<p class="title">1997 Data</p>
+<p class="xl:text-2xl lg:text-2xl md:text-xl sm:text-xl text-gray-600">1997 Data</p>
 <div>
   <mat-form-field>
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
   </mat-form-field>
 </div>
-<div class="table">
+<div class="xl:mr-5 lg:mr-5 md:mr-0 sm:mr-0">
   <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
     <ng-container matColumnDef="duration">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Duration</mat-header-cell>

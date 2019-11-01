@@ -1,7 +1,6 @@
 import {Component, ViewChild, OnInit} from '@angular/core';
 import { DataService} from '../../services/data.service';
-import {MatPaginator, MatSort, MatSortable, MatTableDataSource} from '@angular/material';
-import  { Observable } from 'rxjs';
+import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 
 @Component({
   selector: 'app-sites-list',
