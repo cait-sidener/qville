@@ -1,21 +1,62 @@
-<mat-accordion>
-  <mat-expansion-panel class="mt-5 md:w-2/6 sm:w-full">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Method Variables
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-    <mat-table [dataSource]='dataSource' class='mat-elevation-z8'>
-      <ng-container matColumnDef='name'>
-        <mat-cell *matCellDef='let method'> {{method.name}}</mat-cell>
-      </ng-container>
-      <ng-container matColumnDef='region'>
-          <mat-cell *matCellDef='let method'> {{method.region}}</mat-cell>
-        </ng-container>
-      <ng-container matColumnDef='equation'>
-        <mat-cell *matCellDef='let method'>{{method.equation}}</mat-cell>
-      </ng-container>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    </mat-table>
-  </mat-expansion-panel>
-</mat-accordion>
+<table class='mat-elevation-z8 w-full'>
+  <tr>
+    <td class="p-2">USGS Report 2017-5063 (Region 1)</td>
+    <td class='flex items-center justify-between p-2'>0.26 <img class='h-2 px-1'
+        src='../../../assets/images/is-less-than-or-equal-to-mathematical-symbol.svg'> Area <img class='h-2 px-1'
+        src='../../../assets/images/is-less-than-or-equal-to-mathematical-symbol.svg'> 14,901</td>
+  </tr>
+  <tr>
+    <td class='p-2'>USGS Technical Paper #11 (Not Current)</td>
+    <td class='flex items-center justify-between p-2'>0.4 <img class='h-2 px-1'
+        src='../../../assets/images/is-less-than-or-equal-to-mathematical-symbol.svg'> Area <img class='h-2 px-1'
+        src='../../../assets/images/is-less-than-or-equal-to-mathematical-symbol.svg'> 10,000</td>
+  </tr>
+  <tr>
+    <td class='p-2'>USGS Report #00-4079 (Large Basins)</td>
+    <td class='flex items-center justify-between p-2'>30<img class='h-2 px-1'
+        src='../../../assets/images/is-less-than-or-equal-to-mathematical-symbol.svg'> Area <img class='h-2 px-1'
+        src='../../../assets/images/is-less-than-or-equal-to-mathematical-symbol.svg'>91,000</td>
+  </tr>
+  <tr>
+    <td class='p-2'>USGS Report 2017-5063 (Region 2)</td>
+    <td class='flex items-center justify-between p-2'>1.31<img class='h-2 px-1'
+        src='../../../assets/images/is-less-than-or-equal-to-mathematical-symbol.svg'> Area <img class='h-2 px-1'
+        src='../../../assets/images/is-less-than-or-equal-to-mathematical-symbol.svg'>3555</td>
+  </tr>
+  <tr>
+    <td class='p-2'>FENL-H</td>
+    <td class='flex items-center justify-between p-2'>0.625 <img class='h-2 px-1'
+        src='../../../assets/images/is-less-than-or-equal-to-mathematical-symbol.svg'> Area <img class='h-2 px-1'
+        src='../../../assets/images/is-less-than-or-equal-to-mathematical-symbol.svg'>500</td>
+  </tr>
+  <tr>
+    <td class='p-2'>USGS Report #00-4079 (Small Basins)</td>
+    <td class='flex items-center justify-between p-2'>0.17<img class='h-2 px-1'
+        src='../../../assets/images/is-less-than-or-equal-to-mathematical-symbol.svg'> Area <img class='h-2 px-1'
+        src='../../../assets/images/is-less-than-or-equal-to-mathematical-symbol.svg'>30</td>
+  </tr>
+  <tr>
+    <td class='p-2'>K-TRAN KU-06-4 (Extended Rational)</td>
+    <td class='flex items-center justify-between p-2'>1<img class='h-2 px-1'
+        src='../../../assets/images/is-less-than-or-equal-to-mathematical-symbol.svg'> Area <img class='h-2 px-1'
+        src='../../../assets/images/is-less-than-or-equal-to-mathematical-symbol.svg'>30</td>
+  </tr>
+  <tr>
+    <td class='p-2'>K-TRAN KU-06-4 (3 Variable Regression Equations)</td>
+    <td class='flex items-center justify-between p-2'>1<img class='h-2 px-1'
+        src='../../../assets/images/is-less-than-or-equal-to-mathematical-symbol.svg'> Area <img class='h-2 px-1'
+        src='../../../assets/images/is-less-than-or-equal-to-mathematical-symbol.svg'>30</td>
+  </tr>
+  <tr>
+    <td class='p-2'>FHWA-KS-15-12 (Updated Regional Flood Equations)</td>
+    <td class='flex items-center justify-between p-2'>0<img class='h-2 px-1'
+        src='../../../assets/images/is-less-than-or-equal-to-mathematical-symbol.svg'> Area <img class='h-2 px-1'
+        src='../../../assets/images/is-less-than-or-equal-to-mathematical-symbol.svg'>1</td>
+  </tr>
+  <tr>
+    <td class='p-2'>Rational</td>
+    <td class='flex items-center justify-between p-2'>0<img class='h-2 px-1'
+        src='../../../assets/images/is-less-than-or-equal-to-mathematical-symbol.svg'> Area <img class='h-2 px-1'
+        src='../../../assets/images/is-less-than-or-equal-to-mathematical-symbol.svg'>1</td>
+  </tr>
+</table>

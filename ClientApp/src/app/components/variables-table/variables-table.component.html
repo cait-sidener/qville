@@ -1,22 +1,85 @@
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 text-sm border-solid border-1 border-gray-400 sm:h-auto" matSort>
-    <!-- VarName Column -->
-    <ng-container matColumnDef="varname">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> VarName </th>
-      <td mat-cell *matCellDef="let variables"> {{variables.varname}} </td>
-    </ng-container>
+  <div class='mb-2'>
+    <table class='mat-elevation-z8 w-full h-50'>
+      <tr>
+        <th class='p-4 text-sm text-gray-600 font-normal'>VarName</th>
+        <th class='p-4 text-sm text-gray-600 font-normal'>Description</th>
+        <th class='p-4 text-sm text-gray-600 font-normal'>Units</th>
+      </tr>
+      <tr>
+        <td class="p-2">C</td>
+        <td class="p-2">Runoff (rational) Coefficient</td>
+        <td class="p-2">dimensionless</td>
+      </tr>
+      <tr>
+        <td class="p-2">CDA</td>
+        <td class="p-2">Contributing Drainage Area</td>
+        <td class="p-2">miles<sup>2</sup></td>
+      </tr>
+      <tr>
+        <td class="p-2">CoNo</td>
+        <td class="p-2">County Number</td>
+        <td class="p-2"></td>
+      </tr>
+      <tr>
+        <td class="p-2">I</td>
+        <td class="p-2">Rainfall Intensity</td>
+        <td class="p-2">inches/hour</td>
+      </tr>
+      <tr>
+        <td class="p-2">Ia</td>
+        <td class="p-2">Basin-Average Rainfall Intensity</td>
+        <td class="p-2">inches/hour</td>
+      </tr>
+      <tr>
+        <td class="p-2">MAP</td>
+        <td class="p-2">Mean Average Precipitation</td>
+        <td class="p-2">inches</td>
+      </tr>
+      <tr>
+        <td class="p-2">MAP15</td>
+        <td class="p-2">Mean Average Precipitation (Kansas 2015)</td>
+        <td class="p-2">inches</td>
+      </tr>
+      <tr>
+        <td class="p-2">MAR</td>
+        <td class="p-2">Mean Annual Runoff</td>
+        <td class="p-2">inches</td>
+      </tr>
+      <tr>
+        <td class="p-2">MCL</td>
+        <td class="p-2">Main Channel Length, Bridge to Divide</td>
+        <td class="p-2">miles</td>
+      </tr>
+      <tr>
+        <td class="p-2">P2</td>
+        <td class="p-2">2yr, 24hr Rainfall</td>
+        <td class="p-2">inches</td>
+      </tr>
+      <tr>
+        <td class="p-2">PRECIPRIS10</td>
+        <td class="p-2">Mean Annual Precipitation (USGS 2017)</td>
+        <td class="p-2">inches</td>
+      </tr>
+      <tr>
+        <td class="p-2">Q</td>
+        <td class="p-2">Discharge</td>
+        <td class="p-2">cubic feet per second</td>
+      </tr>
+      <tr>
+        <td class="p-2">Sl</td>
+        <td class="p-2">Slope (10%-85%)</td>
+        <td class="p-2">feet/mile</td>
+      </tr>
+      <tr>
+        <td class="p-2">Sp</td>
+        <td class="p-2">Soil Permeability</td>
+        <td class="p-2">inches/hour</td>
+      </tr>
+      <tr>
+        <td class="p-2">tc</td>
+        <td class="p-2">Time of Concentration</td>
+        <td class="p-2">minutes</td>
+      </tr>
 
-    <!-- Description Column -->
-    <ng-container matColumnDef="description">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
-      <td mat-cell *matCellDef="let variables"> {{variables.description}} </td>
-    </ng-container>
-
-    <!-- Units Column -->
-    <ng-container matColumnDef="units">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Units </th>
-      <td mat-cell *matCellDef="let variables"> {{variables.units}} </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+    </table>
+  </div>

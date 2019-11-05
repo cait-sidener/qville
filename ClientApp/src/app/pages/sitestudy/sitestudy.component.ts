@@ -9,6 +9,7 @@ import { SoilPermeabilityMapsComponent } from '../../components/modals/soil-perm
 import { FormControl } from '@angular/forms';
 import { TooltipPosition } from '@angular/material/tooltip';
 import { RainfallMapComponent } from '../../components/modals/rainfall-map/rainfall-map.component';
+import { MethodVariableTableComponent } from 'src/app/components/method-variable-table/method-variable-table.component';
 
 @Component({
   selector: 'app-sitestudy',
@@ -21,12 +22,9 @@ export class SitestudyComponent implements OnInit {
     position = new FormControl(this.positionOptions[0]);
 
     isLinear = false;
-    firstFormGroup: FormGroup;
-    secondFormGroup: FormGroup;
-    thirdFormGroup: FormGroup;
+    groupAll: FormGroup;
     post:any;
     titleAlert: string = 'This field is required.'
-
     projectNo: string = '';
     county: string = '';
     bridgeSerial: string ='';
@@ -50,14 +48,11 @@ export class SitestudyComponent implements OnInit {
     methodVariables: string = '';
 
     constructor(private _formBuilder: FormBuilder, private dialog: MatDialog) {
-      this.firstFormGroup = _formBuilder.group({
+      this.groupAll = _formBuilder.group({
         'projectNo': '',
-        'county' : [null, Validators.required],
+        'county' : '',
         'bridgeSerial': '',
         'notes': '',
-      });
-
-      this.secondFormGroup = _formBuilder.group({
         'validate': '',
         'currentMethods': '',
         'drainageArea': '',
@@ -65,9 +60,6 @@ export class SitestudyComponent implements OnInit {
         'rainfall': '',
         'soilPermeability': '',
         'slope': '',
-      });
-
-      this.thirdFormGroup = _formBuilder.group({
         'annualPrecipitation': '',
         'annualPrecipitation15': '',
         'annualPrecipitation17': '',
@@ -76,7 +68,7 @@ export class SitestudyComponent implements OnInit {
         'channelLength': '',
         'runoffCoefficient': '',
         'autoCalculate': '',
-        'concentration': ''
+        'concentration': '',
       })
      }
 
@@ -101,28 +93,29 @@ export class SitestudyComponent implements OnInit {
      }
 
     ngOnInit() {
-      this.secondFormGroup.get('validate').valueChanges.subscribe(
+      this.groupAll.get('validate').valueChanges.subscribe(
         (validate) => {
           if (validate == '1') {
-            this.secondFormGroup.get('rainfall').disable();
+            this.groupAll.get('rainfall').disable();
           }
           else if (validate =='2') {
-            this.secondFormGroup.get('rainfall').enable();
+            this.groupAll.get('rainfall').enable();
           }
         }
       )
 
-      this.thirdFormGroup.get('autoCalculate').valueChanges.subscribe(
+      this.groupAll.get('autoCalculate').valueChanges.subscribe(
         (validate) => {
           if (validate =='1') {
-            this.thirdFormGroup.get('concentration').disable();
+            this.groupAll.get('concentration').disable();
           }
           else {
-            this.thirdFormGroup.get('concentration').enable();
+            this.groupAll.get('concentration').enable();
           }
         }
       )
     }
+
 
     openDialog() {
       this.dialog.open(SoilPermeabilityMapsComponent);
@@ -141,6 +134,10 @@ export class SitestudyComponent implements OnInit {
   }
   openDialog6() {
     this.dialog.open(RainfallMapComponent);
+}
+
+openTable() {
+  this.dialog.open(MethodVariableTableComponent);
 }
 
 

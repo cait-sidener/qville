@@ -1,0 +1,95 @@
+<div *ngFor='let siteInfo of siteInfo$' class="rounded shadow-lg px-6 py-4">
+
+  <div class="font-bold text-xl mb-2">Site Info</div>
+  <mat-grid-list cols='2' rowHeight="100px">
+    <mat-grid-tile>
+        <mat-label>Project Number</mat-label>
+        <span
+          class="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2">{{ siteInfo.projectNo }}</span>
+    </mat-grid-tile>
+    <mat-grid-tile class='flex flex-col'>
+      <mat-label>Bridge Serial</mat-label>
+      <span
+        class="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2">{{ siteInfo.bridgeSerial }}</span>
+    </mat-grid-tile>
+    <mat-grid-tile class='flex flex-col'>
+      <mat-label>Notes</mat-label>
+      <span
+        class="inline-block bg-gray-200 roundedpx-3 py-1 text-sm font-semibold text-gray-700 h-6">{{ siteInfo.notes }}</span>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <div class="font-bold text-xl mb-2">Hydro Input</div>
+  <div class="px-6 py-4 flex flex-wrap">
+    <div class='flex flex-col m-2'>
+      <mat-label>Drainage Area (Miles<sup>2</sup>)</mat-label>
+      <span
+        class="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2">{{ siteInfo.drainageArea }}</span>
+    </div>
+    <div class='flex flex-col m-2'>
+      <mat-label>Rational Runoff Coefficient</mat-label>
+      <span
+        class="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2">{{ siteInfo.runoffCoefficient }}</span>
+    </div>
+    <div class='flex flex-col m-2'>
+      <mat-label>Drainage County</mat-label>
+      <span
+        class="inline-block bg-gray-200 roundedpx-3 py-1 text-sm font-semibold text-gray-700">{{ siteInfo.drainageCounty }}</span>
+    </div>
+    <div class='flex flex-col m-2'>
+      <mat-label>Mean Annual Precipitation (Inches)</mat-label>
+      <span
+        class="inline-block bg-gray-200 roundedpx-3 py-1 text-sm font-semibold text-gray-700">{{ siteInfo.annualPrecipitation }}</span>
+    </div>
+    <div class='flex flex-col m-2'>
+      <mat-label>Mean Annual Precipitation 2015 (Inches)</mat-label>
+      <span
+        class="inline-block bg-gray-200 roundedpx-3 py-1 text-sm font-semibold text-gray-700">{{ siteInfo.annualPrecipitation15 }}</span>
+    </div>
+    <div class='flex flex-col m-2'>
+      <mat-label>Mean Annual Runoff (Inches)</mat-label>
+      <span
+        class="inline-block bg-gray-200 roundedpx-3 py-1 text-sm font-semibold text-gray-700">{{ siteInfo.annualRunoff }}</span>
+    </div>
+    <div class='flex flex-col m-2'>
+      <mat-label>Main Channel Length (Miles)</mat-label>
+      <span
+        class="inline-block bg-gray-200 roundedpx-3 py-1 text-sm font-semibold text-gray-700">{{ siteInfo.channelLength }}</span>
+    </div>
+    <div class='flex flex-col m-2'>
+      <mat-label>2yr, 24hr Rainfall (Inches)</mat-label>
+      <span
+        class="inline-block bg-gray-200 roundedpx-3 py-1 text-sm font-semibold text-gray-700">{{ siteInfo.rainfall }}</span>
+    </div>
+    <div class='flex flex-col m-2'>
+      <mat-label>Slope (Feet/Mile)</mat-label>
+      <span
+        class="inline-block bg-gray-200 roundedpx-3 py-1 text-sm font-semibold text-gray-700">{{ siteInfo.slope }}</span>
+    </div>
+    <div class='flex flex-col m-2'>
+      <mat-label>Soil Permeability</mat-label>
+      <span
+        class="inline-block bg-gray-200 roundedpx-3 py-1 text-sm font-semibold text-gray-700">{{ siteInfo.soilPermeability }}</span>
+    </div>
+    <div class='flex flex-col m-2'>
+      <mat-label>Calculated Auto TC</mat-label>
+      <span
+        class="inline-block bg-gray-200 roundedpx-3 py-1 text-sm font-semibold text-gray-700">{{ siteInfo.autoTc }}</span>
+    </div>
+    <div class='flex flex-col m-2'>
+      <mat-label>Time of Concentration (Minutes)</mat-label>
+      <span
+        class="inline-block bg-gray-200 roundedpx-3 py-1 text-sm font-semibold text-gray-700">{{ siteInfo.concentration }}</span>
+    </div>
+    <div class='flex flex-col m-2'>
+      <mat-label>Region (If Applicable)</mat-label>
+      <span
+        class="inline-block bg-gray-200 roundedpx-3 py-1 text-sm font-semibold text-gray-700 h-6">{{ siteInfo.region }}</span>
+    </div>
+    <div class='flex flex-col m-2'>
+      <mat-label>PRECIPRIS10 (Inches)</mat-label>
+      <span
+        class="inline-block bg-gray-200 roundedpx-3 py-1 text-sm font-semibold text-gray-700">{{ siteInfo.precipris10 }}</span>
+    </div>
+  </div>
+
+</div>

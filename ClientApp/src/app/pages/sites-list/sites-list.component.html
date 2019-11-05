@@ -10,9 +10,9 @@
   </div>
 </div>
     <div>
-      <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+      <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 focus:outline-none">
         <ng-container matColumnDef="projectNo">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>Project No</mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header class='focus:outline-none'>Project No</mat-header-cell>
           <mat-cell *matCellDef="let site">{{site.projectNo}}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="dateAdded">
@@ -44,7 +44,7 @@
           <mat-cell *matCellDef="let element">
             <mat-icon class="cursor-pointer" [matMenuTriggerFor]='matMenu'>more_vert</mat-icon>
             <mat-menu #matMenu='matMenu'>
-              <a [routerLink]='sites' mat-menu-item
+              <a mat-menu-item (click)='openDialog()'
                 class="no-underline text-gray-700 hover:no-underline hover:text-gray-700">Edit</a>
             </mat-menu>
           </mat-cell>

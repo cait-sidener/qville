@@ -1,4 +1,41 @@
-<app-nav-menu></app-nav-menu>
-<div class="contain">
-  <router-outlet></router-outlet>
+<div style='height: 100vh;'>
+  <mat-toolbar class='bg-white flex justify-between'>
+    <div class='xl:pl-48 lg:pl-48 md:pl-2 sm:pl-2'>
+      <a [routerLink]="['/']"><img class="h-10" matTooltip="QVille Home" alt="QVille"
+          src="../../../assets/images/qville.jpg" /></a>
+    </div>
+    <div class='xl:pr-48 lg:pr-48 md:pr-2 sm:pr-2' fxShow='true' fxHide.lt-md='true'>
+      <a class="text-gray-600 hover:text-gray-800 hover:no-underline text-base font-normal" [routerLink]="['/']"
+        [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+
+      <a class="text-gray-600 hover:text-gray-800 hover:no-underline pl-4 text-base font-normal" [routerLink]="['/sites']"
+        [routerLinkActive]="['link-active']">Sites</a>
+
+      <a class="text-gray-600 hover:text-gray-800 hover:no-underline pl-4 text-base font-normal" [routerLink]="['/rainfall']"
+        [routerLinkActive]="['link-active']">Rainfall</a>
+    </div>
+
+    <div fxShow='true' fxHide.gt-sm='true'>
+      <a class="text-gray-600 hover:text-gray-800 hover:no-underline pl-3" href='#' (click)='sidenav.toggle()'><mat-icon>view_headline</mat-icon></a>
+    </div>
+  </mat-toolbar>
+  <mat-sidenav-container fxFlexFill class="example-container">
+    <mat-sidenav #sidenav fxLayout='column'>
+      <div fxLayout="column" class='px-3'>
+        <a class="text-gray-600 hover:text-gray-800 hover:no-underline pt-4" [routerLink]="['/']"
+          [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }"><mat-icon matTooltip="QVille Home">home</mat-icon></a>
+
+        <a class="text-gray-600 hover:text-gray-800 hover:no-underline py-4" [routerLink]="['/sites']"
+          [routerLinkActive]="['link-active']"><mat-icon matTooltip="Sites">near_me</mat-icon></a>
+
+        <a class="text-gray-600 hover:text-gray-800 hover:no-underline" [routerLink]="['/rainfall']"
+          [routerLinkActive]="['link-active']"><mat-icon matTooltip="Rainfall">cloud</mat-icon></a>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill>
+      <div class="xl:px-48 lg:px-48 md:px-2 sm:px-2">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>

@@ -1,6 +1,9 @@
 import {Component, ViewChild, OnInit} from '@angular/core';
 import { DataService} from '../../services/data.service';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
+import { SiteSummaryComponent } from '../../components/modals/site-summary/site-summary.component'
+
 
 @Component({
   selector: 'app-sites-list',
@@ -14,7 +17,7 @@ export class SitesListComponent implements OnInit {
   dataSource;
   displayedColumns = ['projectNo', 'dateAdded', 'dateModified', 'addedBy', 'modifiedBy', 'countyNumber', 'bridgeSerial', 'star'];
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService, private dialog: MatDialog) {}
 
   ngOnInit() {
     this.dataService.getSites().subscribe(results => {
@@ -30,4 +33,8 @@ export class SitesListComponent implements OnInit {
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
+  openDialog() {
+    this.dialog.open(SiteSummaryComponent);
+}
 }

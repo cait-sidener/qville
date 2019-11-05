@@ -97,7 +97,7 @@ let colors = {
   'blue-darkest': '#12283a',
   'blue-darker': '#1c3d5a',
   'blue-dark': '#2779bd',
-  'blue': '#3490dc',
+  'blue': '#3f51b5;',
   'blue-light': '#6cb2eb',
   'blue-lighter': '#bcdefa',
   'blue-lightest': '#eff8ff',
@@ -532,6 +532,7 @@ module.exports = {
     '32': '8rem',
     '48': '12rem',
     '64': '16rem',
+    '80': '47.8125rem',
     'full': '100%',
     'screen': '100vh',
   },
@@ -595,7 +596,7 @@ module.exports = {
 
   maxWidth: {
     'xs': '20rem',
-    'sm': '30rem',
+    'sm': '35rem',
     'md': '40rem',
     'lg': '50rem',
     'xl': '60rem',
